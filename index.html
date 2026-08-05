@@ -525,6 +525,10 @@ html,body{overflow-x:hidden;width:100%}
   .well-grid{grid-template-columns:1fr!important}
   .well-card{max-width:100%}
 }
+/* FDA trust module — single col on mobile */
+@media(max-width:640px){
+  .fda-trust-grid{grid-template-columns:1fr!important}
+}
 /* HIW steps */
 @media(max-width:520px){
   .hiw-steps{grid-template-columns:1fr!important}
@@ -652,7 +656,7 @@ img{max-width:100%;height:auto}
     <ul class="nl">
       <li><a href="index.html#how-it-works">How It Works</a></li>
       <li><a href="index.html#glp1">GLP-1 Programs</a></li>
-      <li><a href="index.html#peptides">Wellness</a></li>
+      <li><a href="index.html#peptides">Peptides &amp; Wellness</a></li>
       <li><a href="index.html#faq">FAQ</a></li>
       <li><a href="employers.html" >For Employers</a></li>
     </ul>
@@ -665,7 +669,7 @@ img{max-width:100%;height:auto}
   <div class="mm" id="mm"><ul>
     <li><a href="index.html#how-it-works">How It Works</a></li>
     <li><a href="index.html#glp1">GLP-1 Programs</a></li>
-    <li><a href="index.html#peptides">Wellness</a></li>
+    <li><a href="index.html#peptides">Peptides &amp; Wellness</a></li>
     <li><a href="index.html#faq">FAQ</a></li>
     <li><a href="employers.html">For Employers</a></li>
     <li><a href="index.html#glp1" class="btn btn-primary" style="margin-top:8px">Get Started</a></li>
@@ -912,9 +916,8 @@ img{max-width:100%;height:auto}
           <li><strong>Recovery &amp; Healing</strong> — BPC-157, TB500 for tissue repair</li>
           <li><strong>Performance</strong> — Sermorelin, CJC/Ipamorelin for growth hormone support</li>
           <li><strong>Anti-Aging</strong> — GHK-Cu, Epithalon for cellular longevity</li>
-          <li><strong>Cognitive &amp; Mood</strong> — Semax, Selank for mental clarity</li>
         </ul>
-        <a href="#peptides" class="btn btn-outline" style="margin-top:8px">Browse Wellness Programs →</a>
+        <a href="#peptides" class="btn btn-outline" style="margin-top:8px">Browse Peptides &amp; Wellness →</a>
       </div>
       <div class="edu-visual">
         <img src="images/nad-vial.png" alt="NAD+ Peptide Therapy — Cellular energy and longevity"/>
@@ -930,7 +933,18 @@ img{max-width:100%;height:auto}
       <div class="cat-title">Wellness &amp; Peptide Programs</div>
       <p class="cat-sub">All injectable, dispensed by licensed partner pharmacies, require a physician evaluation. Platform is LegitScript Certified.</p>
     </div>
-    <div class="well-cat-section"><div class="well-cat-title">Cellular Energy &amp; Longevity</div><div class="well-grid">
+    <div style="background:#F7F9FC;border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin:24px 0 40px;max-width:820px">
+      <div style="font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--navy);letter-spacing:-.01em;margin-bottom:10px">Why it matters where your peptides come from</div>
+      <p style="font-size:14px;color:var(--slate);line-height:1.7;margin-bottom:16px">Most peptides sold online are labeled "for research use only, not for human consumption" — a legal loophole that lets sellers skip pharmacy oversight, purity testing, and medical supervision entirely. MedFit works differently:</p>
+      <ul class="fda-trust-grid" style="list-style:none;padding:0;margin:0 0 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px">
+        <li style="display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--navy);line-height:1.5"><svg width="16" height="16" style="flex-shrink:0;margin-top:3px" fill="none" viewBox="0 0 24 24"><path stroke="#0092CA" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span><strong>Physician evaluation required</strong> — every program starts with a real medical evaluation, not a checkout button</span></li>
+        <li style="display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--navy);line-height:1.5"><svg width="16" height="16" style="flex-shrink:0;margin-top:3px" fill="none" viewBox="0 0 24 24"><path stroke="#0092CA" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span><strong>Valid prescription, every time</strong> — nothing ships without a licensed physician's prescription</span></li>
+        <li style="display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--navy);line-height:1.5"><svg width="16" height="16" style="flex-shrink:0;margin-top:3px" fill="none" viewBox="0 0 24 24"><path stroke="#0092CA" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span><strong>Compounded by licensed 503A/503B pharmacies</strong> — under FDA-registered facility standards, not an unregulated lab</span></li>
+        <li style="display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--navy);line-height:1.5"><svg width="16" height="16" style="flex-shrink:0;margin-top:3px" fill="none" viewBox="0 0 24 24"><path stroke="#0092CA" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg><span><strong>Sourced and dispensed for human use</strong> — not shipped under a "not for human consumption" disclaimer</span></li>
+      </ul>
+      <p style="font-size:12px;color:var(--slate-light);line-height:1.6;font-style:italic;margin:0;padding-top:14px;border-top:1px solid var(--border)">Compounded medications are not FDA-approved and have not been evaluated by the FDA for safety, effectiveness, or quality. They are not represented to be the same as, or equivalent to, any FDA-approved medication.</p>
+    </div>
+    <div class="well-cat-section" id="cat-cellular-energy"><div class="well-cat-title">Cellular Energy &amp; Longevity</div><div class="well-grid">
       <div class="well-card anim" data-card>
   <div class="well-img" style="background:linear-gradient(135deg,#fefce8,#fef3c7)"><img src="images/nad-vial.png" alt="NAD+"/></div>
   <div class="well-body">
@@ -980,7 +994,7 @@ img{max-width:100%;height:auto}
   </div>
 </div>
     </div></div>
-    <div class="well-cat-section"><div class="well-cat-title">Weight Loss Support Peptides</div><div class="well-grid">
+    <div class="well-cat-section" id="cat-weight-loss"><div class="well-cat-title">Weight Loss Support Peptides</div><div class="well-grid">
       <div class="well-card anim" data-card>
   <div class="well-img" style="background:linear-gradient(135deg,#fef9c3,#fef3c7)"><img src="images/lipo-vial.png" alt="LIPO-B"/></div>
   <div class="well-body">
@@ -1046,7 +1060,7 @@ img{max-width:100%;height:auto}
   </div>
 </div>
     </div></div>
-    <div class="well-cat-section"><div class="well-cat-title">Muscle Growth &amp; Performance</div><div class="well-grid">
+    <div class="well-cat-section" id="cat-muscle-growth"><div class="well-cat-title">Muscle Growth &amp; Performance</div><div class="well-grid">
       <div class="well-card anim" data-card>
   <div class="well-img" style="background:linear-gradient(135deg,#fff1f2,#fee2e2)"><img src="images/serm-vial.png" alt="Sermorelin"/></div>
   <div class="well-body">
@@ -1095,24 +1109,8 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 </div>
-      <div class="well-card anim" data-card>
-  <div class="well-img" style="background:linear-gradient(135deg,#fff1f2,#fee2e2)"><img src="images/igf-vial.png" alt="IGF-LR3"/></div>
-  <div class="well-body">
-    <div class="well-cat-badge" style="background:#EF444418;color:#EF4444">Performance</div>
-    <div class="well-name">IGF-LR3</div>
-    <div class="well-street">Also known as: IGF / Long R3 / Insulin-Like Growth Factor</div>
-    <p class="well-desc">An extended half-life IGF-1 analogue. Associated with muscle protein synthesis and recovery support.</p>
-    <a href="peptide-igf-lr3.html" style="font-size:13px;font-weight:600;color:var(--blue);display:inline-block;margin-bottom:4px">Learn More →</a>
-    <div class="well-pricing">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border)">
-        <div><span style="font-size:18px;font-weight:700;color:var(--blue)">$179<span style="font-size:12px;font-weight:400;color:var(--slate-light)">/mo first month</span></span><div style="font-size:11px;color:var(--slate-light);margin-top:2px">then $199/mo ongoing</div></div>
-        <span style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#F3F4F6;color:#9CA3AF;border-radius:4px;padding:5px 10px;border:1px solid #E5E7EB">Coming Soon</span>
-      </div>
-    </div>
-  </div>
-</div>
     </div></div>
-    <div class="well-cat-section"><div class="well-cat-title">Recovery &amp; Healing</div><div class="well-grid">
+    <div class="well-cat-section" id="cat-recovery"><div class="well-cat-title">Recovery &amp; Healing</div><div class="well-grid">
       <div class="well-card anim" data-card>
   <div class="well-img" style="background:linear-gradient(135deg,#ecfeff,#cffafe)"><img src="images/bpc-vial.png" alt="BPC-157"/></div>
   <div class="well-body">
@@ -1193,24 +1191,8 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 </div>
-      <div class="well-card anim" data-card>
-  <div class="well-img" style="background:linear-gradient(135deg,#ecfeff,#cffafe)"><img src="images/ll37-vial.png" alt="LL-37"/></div>
-  <div class="well-body">
-    <div class="well-cat-badge" style="background:#06B6D418;color:#06B6D4">Recovery</div>
-    <div class="well-name">LL-37</div>
-    <div class="well-street">Also known as: LL37 / Cathelicidin / Antimicrobial Peptide</div>
-    <p class="well-desc">A human cathelicidin associated with immune defense and tissue repair in research settings.</p>
-    <a href="peptide-ll-37.html" style="font-size:13px;font-weight:600;color:var(--blue);display:inline-block;margin-bottom:4px">Learn More →</a>
-    <div class="well-pricing">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border)">
-        <div><span style="font-size:18px;font-weight:700;color:var(--blue)">$179<span style="font-size:12px;font-weight:400;color:var(--slate-light)">/mo first month</span></span><div style="font-size:11px;color:var(--slate-light);margin-top:2px">then $199/mo ongoing</div></div>
-        <span style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#F3F4F6;color:#9CA3AF;border-radius:4px;padding:5px 10px;border:1px solid #E5E7EB">Coming Soon</span>
-      </div>
-    </div>
-  </div>
-</div>
     </div></div>
-    <div class="well-cat-section"><div class="well-cat-title">Anti-Aging &amp; Cellular Health</div><div class="well-grid">
+    <div class="well-cat-section" id="cat-anti-aging"><div class="well-cat-title">Anti-Aging &amp; Cellular Health</div><div class="well-grid">
       <div class="well-card anim" data-card>
   <div class="well-img" style="background:linear-gradient(135deg,#faf5ff,#f3e8ff)"><img src="images/ghkcu-vial.png" alt="GHK-Cu"/></div>
   <div class="well-body">
@@ -1243,74 +1225,8 @@ img{max-width:100%;height:auto}
     </div>
   </div>
 </div>
-      <div class="well-card anim" data-card>
-  <div class="well-img" style="background:linear-gradient(135deg,#faf5ff,#f3e8ff)"><img src="images/pineal-vial.png" alt="Pinealon / PE22-28 / Selank"/></div>
-  <div class="well-body">
-    <div class="well-cat-badge" style="background:#8B5CF618;color:#8B5CF6">Cellular</div>
-    <div class="well-name">Pinealon / PE22-28 / Selank</div>
-    <div class="well-street">Also known as: Pinealon Stack / Neuroprotective Blend</div>
-    <p class="well-desc">Triple-peptide blend for cognitive and cellular health support.</p>
-    <a href="peptide-pinealon.html" style="font-size:13px;font-weight:600;color:var(--blue);display:inline-block;margin-bottom:4px">Learn More →</a>
-    <div class="well-pricing">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border)">
-        <div><span style="font-size:18px;font-weight:700;color:var(--blue)">$189<span style="font-size:12px;font-weight:400;color:var(--slate-light)">/mo first month</span></span><div style="font-size:11px;color:var(--slate-light);margin-top:2px">then $219/mo ongoing</div></div>
-        <span style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#F3F4F6;color:#9CA3AF;border-radius:4px;padding:5px 10px;border:1px solid #E5E7EB">Coming Soon</span>
-      </div>
-    </div>
-  </div>
-</div>
     </div></div>
-    <div class="well-cat-section"><div class="well-cat-title">Cognitive &amp; Mood Support</div><div class="well-grid">
-      <div class="well-card anim" data-card>
-  <div class="well-img" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><img src="images/dsip-vial.png" alt="DSIP"/></div>
-  <div class="well-body">
-    <div class="well-cat-badge" style="background:#6366F118;color:#6366F1">Cognitive</div>
-    <div class="well-name">DSIP</div>
-    <div class="well-street">Also known as: Delta Sleep Peptide / Sleep Neuropeptide</div>
-    <p class="well-desc">A neuropeptide associated with sleep quality, stress reduction, and circadian rhythm support.</p>
-    <a href="peptide-dsip.html" style="font-size:13px;font-weight:600;color:var(--blue);display:inline-block;margin-bottom:4px">Learn More →</a>
-    <div class="well-pricing">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border)">
-        <div><span style="font-size:18px;font-weight:700;color:var(--blue)">$179<span style="font-size:12px;font-weight:400;color:var(--slate-light)">/mo first month</span></span><div style="font-size:11px;color:var(--slate-light);margin-top:2px">then $199/mo ongoing</div></div>
-        <span style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#F3F4F6;color:#9CA3AF;border-radius:4px;padding:5px 10px;border:1px solid #E5E7EB">Coming Soon</span>
-      </div>
-    </div>
-  </div>
-</div>
-      <div class="well-card anim" data-card>
-  <div class="well-img" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><img src="images/semax-vial.png" alt="Semax / Selank"/></div>
-  <div class="well-body">
-    <div class="well-cat-badge" style="background:#6366F118;color:#6366F1">Cognitive</div>
-    <div class="well-name">Semax / Selank</div>
-    <div class="well-street">Also known as: Nootropic Stack / Russian Nootropics</div>
-    <p class="well-desc">Semax associated with cognitive enhancement; Selank with anxiolytic effects. May support mental clarity.</p>
-    <a href="peptide-semax-selank.html" style="font-size:13px;font-weight:600;color:var(--blue);display:inline-block;margin-bottom:4px">Learn More →</a>
-    <div class="well-pricing">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border)">
-        <div><span style="font-size:18px;font-weight:700;color:var(--blue)">$189<span style="font-size:12px;font-weight:400;color:var(--slate-light)">/mo first month</span></span><div style="font-size:11px;color:var(--slate-light);margin-top:2px">then $219/mo ongoing</div></div>
-        <a href="https://intake.medfit.health/f/semax-selank" class="btn btn-outline btn-sm">Get Started</a>
-      </div>
-    </div>
-  </div>
-</div>
-      <div class="well-card anim" data-card>
-  <div class="well-img" style="background:linear-gradient(135deg,#eef2ff,#e0e7ff)"><img src="images/dsip-bpc-cjc-vial.png" alt="DSIP / BPC-157 / CJC-1295"/></div>
-  <div class="well-body">
-    <div class="well-cat-badge" style="background:#6366F118;color:#6366F1">Cognitive</div>
-    <div class="well-name">DSIP / BPC-157 / CJC-1295</div>
-    <div class="well-street">Also known as: Sleep-Recovery-Growth Stack</div>
-    <p class="well-desc">Multi-target combination for sleep quality, gut-brain axis, and growth hormone release support.</p>
-    <a href="peptide-dsip-bpc-cjc.html" style="font-size:13px;font-weight:600;color:var(--blue);display:inline-block;margin-bottom:4px">Learn More →</a>
-    <div class="well-pricing">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border)">
-        <div><span style="font-size:18px;font-weight:700;color:var(--blue)">$179<span style="font-size:12px;font-weight:400;color:var(--slate-light)">/mo first month</span></span><div style="font-size:11px;color:var(--slate-light);margin-top:2px">then $199/mo ongoing</div></div>
-        <span style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#F3F4F6;color:#9CA3AF;border-radius:4px;padding:5px 10px;border:1px solid #E5E7EB">Coming Soon</span>
-      </div>
-    </div>
-  </div>
-</div>
-    </div></div>
-    <div class="well-cat-section"><div class="well-cat-title">Sexual Health &amp; Hormonal Support</div><div class="well-grid">
+    <div class="well-cat-section" id="cat-sexual-health"><div class="well-cat-title">Sexual Health &amp; Hormonal Support</div><div class="well-grid">
       <div class="well-card anim" data-card>
   <div class="well-img" style="background:linear-gradient(135deg,#fdf2f8,#fce7f3)"><img src="images/pt141-vial.png" alt="PT-141"/></div>
   <div class="well-body">
@@ -1323,22 +1239,6 @@ img{max-width:100%;height:auto}
       <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border)">
         <div><span style="font-size:18px;font-weight:700;color:var(--blue)">$179<span style="font-size:12px;font-weight:400;color:var(--slate-light)">/mo first month</span></span><div style="font-size:11px;color:var(--slate-light);margin-top:2px">then $199/mo ongoing</div></div>
         <a href="https://intake.medfit.health/f/pt-141" class="btn btn-outline btn-sm">Get Started</a>
-      </div>
-    </div>
-  </div>
-</div>
-      <div class="well-card anim" data-card>
-  <div class="well-img" style="background:linear-gradient(135deg,#fdf2f8,#fce7f3)"><img src="images/kiss-vial.png" alt="Kisspeptin"/></div>
-  <div class="well-body">
-    <div class="well-cat-badge" style="background:#EC489918;color:#EC4899">Hormonal</div>
-    <div class="well-name">Kisspeptin</div>
-    <div class="well-street">Also known as: Kiss-1 / Kisspeptin-10 / Reproductive Peptide</div>
-    <p class="well-desc">A neuropeptide regulating reproductive hormone pathways. Associated with supporting natural hormone release.</p>
-    <a href="peptide-kisspeptin.html" style="font-size:13px;font-weight:600;color:var(--blue);display:inline-block;margin-bottom:4px">Learn More →</a>
-    <div class="well-pricing">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid var(--border)">
-        <div><span style="font-size:18px;font-weight:700;color:var(--blue)">$179<span style="font-size:12px;font-weight:400;color:var(--slate-light)">/mo first month</span></span><div style="font-size:11px;color:var(--slate-light);margin-top:2px">then $199/mo ongoing</div></div>
-        <span style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#F3F4F6;color:#9CA3AF;border-radius:4px;padding:5px 10px;border:1px solid #E5E7EB">Coming Soon</span>
       </div>
     </div>
   </div>
@@ -1394,9 +1294,9 @@ img{max-width:100%;height:auto}
       <div class="ftcol"><h4>Programs</h4><ul>
         <li><a href="index.html#glp1">Semaglutide</a></li>
         <li><a href="index.html#glp1">Tirzepatide</a></li>
-        <li><a href="index.html#peptides">NAD+ &amp; Peptides</a></li>
-        <li><a href="index.html#peptides">Recovery</a></li>
-        <li><a href="index.html#peptides">Anti-Aging</a></li>
+        <li><a href="index.html#cat-cellular-energy">NAD+ &amp; Peptides</a></li>
+        <li><a href="index.html#cat-recovery">Recovery</a></li>
+        <li><a href="index.html#cat-anti-aging">Anti-Aging</a></li>
       </ul></div>
       <div class="ftcol"><h4>Company</h4><ul>
         <li><a href="index.html#how-it-works">How It Works</a></li>
