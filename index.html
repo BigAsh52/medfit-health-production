@@ -642,6 +642,18 @@ img{max-width:100%;height:auto}
 </style>
 <link rel="icon" type="image/png" href="/images/favicon.png"/>
 <link rel="apple-touch-icon" href="/images/favicon.png"/>
+<style>
+/* Topbar + header pin, done in JS rather than relying on CSS position:sticky — a sitewide
+   overflow-x:hidden rule (elsewhere in this stylesheet) makes sticky unreliable across
+   browsers, so this guarantees both stay visible together on scroll. Self-contained: only
+   affects .topbar, .hdr, and #headerSpacer below. */
+.topbar{position:relative}
+.topbar.header-pinned{position:fixed;left:0;right:0;width:100%;z-index:101}
+.hdr{position:relative}
+.hdr.header-pinned{position:fixed;left:0;right:0;width:100%}
+#headerSpacer{display:none}
+#headerSpacer.header-active{display:block}
+</style>
 </head>
 <body>
 <div class="topbar"><div class="topbar-inner">
@@ -678,6 +690,8 @@ img{max-width:100%;height:auto}
     <li><a href="index.html#glp1" class="btn btn-primary">Get Started</a></li>
   </ul></div>
 </header>
+<div id="headerSpacer"></div>
+
 
 <section class="hero-d2c">
   <div class="hero-d2c-inner">
@@ -1543,5 +1557,37 @@ function chkShowResult(){
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeChk();});
 </script>
 
+<script>
+/* Topbar + header pin — keeps both visible together on scroll, as one stacked unit.
+   Self-contained: only reads/writes .topbar, .hdr, and #headerSpacer, so it can't
+   conflict with any other script on the page. */
+(function initHeaderPin(){
+  var topbar = document.querySelector('.topbar');
+  var header = document.querySelector('.hdr');
+  var spacer = document.getElementById('headerSpacer');
+  if(!topbar || !header || !spacer) return;
+
+  function pin(){
+    topbar.classList.remove('header-pinned');
+    header.classList.remove('header-pinned');
+    topbar.style.top = '';
+    header.style.top = '';
+
+    var topbarHeight = topbar.offsetHeight;
+    var headerHeight = header.offsetHeight;
+
+    topbar.style.top = '0px';
+    header.style.top = topbarHeight + 'px';
+    topbar.classList.add('header-pinned');
+    header.classList.add('header-pinned');
+
+    spacer.style.height = (topbarHeight + headerHeight) + 'px';
+    spacer.classList.add('header-active');
+  }
+
+  window.addEventListener('resize', pin);
+  pin();
+})();
+</script>
 </body>
 </html>
