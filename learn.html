@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WGDZN45W7D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WGDZN45W7D');
+</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>GLP-1 & Peptide Therapy, Explained | MedFit Health</title>
@@ -733,8 +741,19 @@ img{max-width:100%;height:auto}
 .lrn-breadcrumb a{color:var(--slate-light)}
 .lrn-no-results{display:none;padding:30px 0;color:var(--slate);font-size:14.5px}
 .lrn-no-results.lrn-show{display:block}
+/* Topbar + header pin, done in JS rather than relying on CSS position:sticky — same
+   reasoning as the sidebar below: the sitewide overflow-x:hidden rule can make sticky
+   unreliable across browsers, so this guarantees both stay visible together on scroll. */
+.topbar{position:relative}
+.topbar.lrn-header-pinned{position:fixed;left:0;right:0;width:100%;z-index:101}
+.hdr{position:relative}
+.hdr.lrn-header-pinned{position:fixed;left:0;right:0;width:100%}
+#lrnHeaderSpacer{display:none}
+#lrnHeaderSpacer.lrn-active{display:block}
 .lrn-library-layout{display:grid;grid-template-columns:1fr 300px;gap:36px;align-items:start}
-.lrn-sidebar{position:sticky;top:88px}
+.lrn-sidebar{position:relative}
+.lrn-sidebar.lrn-pinned{position:fixed;top:88px}
+.lrn-sidebar.lrn-bottomed{position:absolute}
 .lrn-fda-card{background:#FEF3C7;border:1px solid #FDE7A8;border-top:3px solid #F59E0B;border-radius:var(--radius-lg);padding:22px}
 .lrn-fda-icon{color:#B45309;margin-bottom:10px}
 .lrn-fda-card h4{font-family:var(--font-display);font-weight:500;font-size:16px;color:#78350F;margin:0 0 10px;line-height:1.3}
@@ -795,6 +814,7 @@ img{max-width:100%;height:auto}
     <li><a href="index.html#glp1" class="btn btn-primary">Get Started</a></li>
   </ul></div>
 </header>
+<div id="lrnHeaderSpacer"></div>
 <div class="si lrn-breadcrumb"><a href="index.html">Home</a> / Learn</div>
 
 <section class="lrn-hero"><div class="si">
@@ -1224,6 +1244,104 @@ function lrnApplyFilters(){
 
 lrnSearchInput.addEventListener('input', lrnApplyFilters);
 lrnApplyFilters();
+
+/* Header pin — keeps the topbar and nav row pinned together as one stacked unit, always
+   visible. Done in JS rather than CSS position:sticky (same reasoning as the sidebar below):
+   the sitewide overflow-x:hidden rule can make sticky unreliable across browsers. This only
+   reads/writes the topbar, header, and spacer, so it can't conflict with anything else. */
+(function initLrnHeaderPin(){
+  const topbar = document.querySelector('.topbar');
+  const header = document.querySelector('.hdr');
+  const spacer = document.getElementById('lrnHeaderSpacer');
+  if(!topbar || !header || !spacer) return;
+
+  function pin(){
+    topbar.classList.remove('lrn-header-pinned');
+    header.classList.remove('lrn-header-pinned');
+    topbar.style.top = '';
+    header.style.top = '';
+
+    const topbarHeight = topbar.offsetHeight;
+    const headerHeight = header.offsetHeight;
+
+    topbar.style.top = '0px';
+    header.style.top = topbarHeight + 'px';
+    topbar.classList.add('lrn-header-pinned');
+    header.classList.add('lrn-header-pinned');
+
+    spacer.style.height = (topbarHeight + headerHeight) + 'px';
+    spacer.classList.add('lrn-active');
+  }
+
+  window.addEventListener('resize', pin);
+  pin();
+})();
+
+/* Sidebar "float" behavior, done in JS rather than CSS position:sticky.
+   Sticky depends on ancestor overflow settings (a sitewide overflow-x:hidden rule
+   elsewhere on this site breaks it), so this avoids that dependency entirely —
+   it only reads/writes this one element and never touches global page state. */
+(function initLrnSidebarFloat(){
+  const sidebar = document.querySelector('.lrn-sidebar');
+  const column = document.querySelector('.lrn-library-main');
+  if(!sidebar || !column) return;
+
+  const TOP_OFFSET = 88;
+  let naturalTop = 0, naturalLeft = 0, naturalWidth = 0;
+
+  function measure(){
+    // reset to static to measure the element's true in-flow position/size
+    sidebar.classList.remove('lrn-pinned','lrn-bottomed');
+    sidebar.style.width = '';
+    sidebar.style.left = '';
+    const rect = sidebar.getBoundingClientRect();
+    naturalTop = rect.top + window.scrollY;
+    naturalLeft = rect.left + window.scrollX;
+    naturalWidth = rect.width;
+    update();
+  }
+
+  function update(){
+    if (window.innerWidth < 960) {
+      sidebar.classList.remove('lrn-pinned','lrn-bottomed');
+      sidebar.style.width = '';
+      sidebar.style.left = '';
+      sidebar.style.top = '';
+      return;
+    }
+    const columnRect = column.getBoundingClientRect();
+    const columnBottom = columnRect.bottom + window.scrollY;
+    const sidebarHeight = sidebar.offsetHeight;
+    const scrollY = window.scrollY;
+
+    if (scrollY + TOP_OFFSET < naturalTop) {
+      // not scrolled far enough yet — normal flow
+      sidebar.classList.remove('lrn-pinned','lrn-bottomed');
+      sidebar.style.width = '';
+      sidebar.style.left = '';
+      sidebar.style.top = '';
+    } else if (scrollY + TOP_OFFSET + sidebarHeight > columnBottom) {
+      // would overshoot past the bottom of the library column — park at the bottom
+      sidebar.classList.remove('lrn-pinned');
+      sidebar.classList.add('lrn-bottomed');
+      sidebar.style.top = (columnBottom - sidebarHeight) + 'px';
+      sidebar.style.width = naturalWidth + 'px';
+      sidebar.style.left = naturalLeft + 'px';
+    } else {
+      // float, pinned under the header
+      sidebar.classList.remove('lrn-bottomed');
+      sidebar.classList.add('lrn-pinned');
+      sidebar.style.width = naturalWidth + 'px';
+      sidebar.style.left = naturalLeft + 'px';
+      sidebar.style.top = '';
+    }
+  }
+
+  window.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('resize', measure);
+  measure();
+})();
+
 </script>
 
 </body>
