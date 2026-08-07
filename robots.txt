@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://mfh1.medfit.health/sitemap.xml
+Sitemap: https://medfit.health/sitemap.xml
 
 User-agent: GPTBot
 Allow: /
